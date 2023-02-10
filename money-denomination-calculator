@@ -1,0 +1,74 @@
+#include <iostream>
+#include <cctype>
+#include <string>
+using namespace std;
+
+int main() {
+
+  //Below is simply initializing each variable
+  //Each variable is an integar due to the input being entered in cents
+  
+  int dollars;
+  int quarters;
+  int dimes;
+  int nickels;
+  int pennies;
+  int moneyValue;
+
+  cin >> moneyValue; //input is taken as number of cents
+  
+  //Below is a series of conditional statements that first determine whether or not the money amount is large enough for each denomination, then using a modulo, the excess is removed from the input value to determine how many of each type of currency will be needed
+
+  dollars = (moneyValue >= 100) ? ((moneyValue - (moneyValue % 100)) / 100) : 0; //for each currency type and value, conditional statement decides whether or not there is enough money for each type of currency
+  moneyValue = moneyValue - (dollars * 100); //moneyValue is changed so that small dinominations may execute correctly
+  
+  quarters = (moneyValue >= 25) ? ((moneyValue - (moneyValue % 25)) / 25) : 0;
+  moneyValue = moneyValue - (quarters * 25);
+
+  dimes = (moneyValue >= 10) ? ((moneyValue - (moneyValue % 10)) / 10) : 0;
+  moneyValue = moneyValue - (dimes * 10);
+
+  nickels = (moneyValue >= 5) ? ((moneyValue - (moneyValue % 5))/ 5) : 0;
+  moneyValue = moneyValue - (nickels * 5);
+
+  pennies = moneyValue; //After all of the conditional statements are run, the result of moneyValue is the number of pennies
+  
+  //Below is a series of if-statements that only output if the statements' respective currency is more than one and takes into account whether or not the currency name is plural
+  
+  if (dollars > 1) { //each value and value type is put to output on a new line
+    cout << dollars << " Dollars" << endl;}
+  
+  if (dollars == 1) {
+    cout << dollars << " Dollar" << endl; }
+
+  if (quarters > 1) {
+  cout << quarters << " Quarters" << endl; }
+  
+  if (quarters == 1) {
+    cout << quarters << " Quarter" << endl; }
+
+  if (dimes > 1) {
+    cout << dimes << " Dimes" << endl; }
+  
+   if (dimes == 1) {
+    cout << dimes << " Dime" << endl; }
+
+  if (nickels > 1) {
+  cout << nickels << " Nickels" << endl; }
+  
+   if (nickels == 1) {
+    cout << nickles << " Nickle" << endl; }
+
+  if (pennies > 1) {
+  cout << pennies << " Pennies" << endl; }
+  
+   if (pennies == 1) {
+    cout << pennies << " Penny" << endl; }
+
+  if ((dollars ==  0) and (quarters == 0) and (dimes == 0) and (nickels == 0) and (pennies == 0)) {
+    cout << "Invalid Input" << endl;
+  }
+  
+
+  return 0;
+}
