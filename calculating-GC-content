@@ -1,0 +1,40 @@
+#include <iostream>
+#include <cctype>
+#include <string>
+#include <vector>
+using namespace std;
+
+int main() {
+
+string seq = ""; //The sequence is manually entered here
+vector<char> seqV; //This is the vector that the code will be entered into
+
+//The two varaibles below are used to count the number of G and C in the given sequence
+
+int countG = 0;
+int countC = 0;
+
+double gcContent; //This variable will be assigned the percent GC in the sequence
+int i;
+
+for (i = 0; i < seq.size(); ++i) { //This for loop is used to enter the string characters into a char vector
+	seqV.push_back(seq.at(i)); 
+	}
+
+for (i = 0; i < seqV.size(); ++i) { //Here the chars in the vector are compared to G and C and if they match they will be added to their respective count
+	if (seqV.at(i) == 'G') {
+		countG += 1; }
+	else if (seqV.at(i) == 'C') {
+		countC += 1; }
+
+	}
+
+gcContent = (countG + countC);
+gcContent /= seqV.size(); //Assignment of percent gc to gcContent
+
+//Output of result
+
+cout << "GC content of this sequence: " << gcContent << endl;
+
+return 0;
+  }
