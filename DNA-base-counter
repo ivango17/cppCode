@@ -1,0 +1,50 @@
+#include <iostream>
+#include <cctype>
+#include <string>
+#include <vector>
+using namespace std;
+
+int main() {
+
+string seq = ""; //Here the sequence is manually entered into the string variable
+vector<char> seqV; //This vector will be used to store the sequence
+
+//Each of the variables below other than I is used to count the base pairs
+
+int countA = 0;
+int countT = 0;
+int countG = 0;
+int countC = 0;
+int i;
+
+for (i = 0; i < seq.size(); ++i) { //This for loop simply takes each character in the string and enters it into the char vector
+	seqV.push_back(seq.at(i)); 
+	}
+
+//The for loop below checks each of the elements in the vector and adds one to each base counter if the compared characters are the same
+
+for (i = 0; i < seqV.size(); ++i) {
+	if (seqV.at(i) == 'A') {
+		countA += 1; }
+	else if (seqV.at(i) == 'T') {
+		countT += 1; }
+	else if (seqV.at(i) == 'G') {
+		countG += 1; }
+	else if (seqV.at(i) == 'C') {
+		countC += 1; }
+	}
+
+//The block below outputs the count of each base
+
+cout << "Number of A in sequence: " << countA << endl;
+cout << "Number of T in sequence: " << countT << endl;
+cout << "Number of G in sequence: " << countG << endl;
+cout << "Number of C in sequence: " << countC << endl;
+
+
+
+
+
+return 0;
+
+}
